@@ -1,0 +1,56 @@
+{
+    "name": "mccaulay/laravel-blockchain",
+    "description": "Communicate with the Blockchain API with ease",
+    "keywords": [
+        "mccaulay",
+        "laravel-blockchain",
+        "laravel",
+        "blockchain"
+    ],
+    "homepage": "https://github.com/McCaulay/laravel-blockchain",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "McCaulay Hudson",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.1",
+        "blockchain/blockchain": "^1.4",
+        "guzzlehttp/guzzle": "~6.0",
+        "illuminate/support": "5.8.*"
+    },
+    "require-dev": {
+        "orchestra/testbench": "3.8.*",
+        "phpunit/phpunit": "^7.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "McCaulay\\Blockchain\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "McCaulay\\Blockchain\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "McCaulay\\Blockchain\\Providers\\BlockchainServiceProvider"
+            ],
+            "aliases": {
+                "Blockchain": "McCaulay\\Blockchain\\Facades\\Blockchain"
+            }
+        }
+    }
+}
