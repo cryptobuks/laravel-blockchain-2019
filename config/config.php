@@ -43,14 +43,4 @@ return [
      */
     'port' => env('BLOCKCHAIN_PORT', 3000),
 
-    /*
-    |--------------------------------------------------------------------------
-    | Blockchain Secure
-    |--------------------------------------------------------------------------
-    |
-    | If the blockchain-wallet-service connection uses SSL. (HTTPS)
-    |
-     */
-    'secure' => env('BLOCKCHAIN_SECURE', false),
-
 ];

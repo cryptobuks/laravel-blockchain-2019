@@ -19,7 +19,6 @@ class Blockchain extends \Blockchain\Blockchain
 
         // Initalise the config
         $this->config = config('blockchain');
-
         $this->setServiceUrl($this->getServiceUrl());
 
         if ($this->config['wallet'] != null && $this->config['password'] != null) {
@@ -34,9 +33,8 @@ class Blockchain extends \Blockchain\Blockchain
      */
     public function getServiceUrl()
     {
-        $protocol = 'http' . $this->config['secure'] ? 's' : '';
         $port = isset($this->config['port']) && $this->config['port'] != null ? ':' . $this->config['port'] : '';
-        return $protocol . '//' . $this->config['host'] . $port;
+        return $this->config['host'] . $port;
     }
 
     /**
