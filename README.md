@@ -15,8 +15,39 @@ composer require mccaulay/laravel-blockchain
 
 ## Usage
 
+### Block Explorer
 ``` php
-// Usage description here
+// Get a block
+$block = Blockchain::explorer()->getBlock($hash);
+
+// Get a transaction
+$transaction = Blockchain::explorer()->getTransaction($hash);
+```
+
+### Create
+``` php
+// Creating a new wallet
+$wallet = Blockchain::create()->create($password, $email, $label);
+```
+
+### Rates
+``` php
+// Get the bitcoin exchange rate amount
+$btc = Blockchain::rates()->toBTC(500, 'USD');
+```
+
+### Receive
+``` php
+// Generate a receive request
+$v2ApiKey = 'myApiKey';
+$xpub = 'xpubYourXPub';
+$callbackUrl = 'http://example.com/transaction?secret=mySecret';
+$gap_limit = 5 // optional - how many unused addresses are allowed before erroring out
+
+$response = Blockchain::receive()->generate($apiKey, $xpub, $callbackUrl, $gapLimit);
+
+// Show receive address to user:
+echo "Send coins to " . $response->getReceiveAddress();
 ```
 
 ## Credits
